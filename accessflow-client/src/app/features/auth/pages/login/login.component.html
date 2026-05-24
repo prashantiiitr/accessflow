@@ -1,1 +1,30 @@
-<p>login works!</p>
+<div class="login-container">
+  <form
+    [formGroup]="loginForm"
+    (ngSubmit)="onSubmit()"
+    class="login-card"
+  >
+    <h2>AccessFlow</h2>
+
+    <input
+      type="text"
+      placeholder="User ID"
+      formControlName="userId"
+    />
+
+    <input
+      type="password"
+      placeholder="Password"
+      formControlName="password"
+    />
+
+    <select formControlName="role">
+      <option>General User</option>
+      <option>Admin</option>
+    </select>
+
+    <button type="submit">
+      {{ loading ? 'Loading...' : 'Login' }}
+    </button>
+  </form>
+</div>

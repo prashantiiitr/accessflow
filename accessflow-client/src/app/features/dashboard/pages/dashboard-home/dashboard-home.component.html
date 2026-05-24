@@ -1,1 +1,44 @@
-<p>dashboard-home works!</p>
+<div class="dashboard-container">
+  <div class="topbar">
+    <h2>AccessFlow Dashboard</h2>
+
+    <button (click)="logout()">Logout</button>
+  </div>
+
+  <div class="profile-card">
+    <h3>Welcome, {{ user?.name }}</h3>
+
+    <p>User ID: {{ user?.userId }}</p>
+
+    <p>Role: {{ user?.role }}</p>
+  </div>
+
+  <div *ngIf="loading" class="loader">
+    Loading records...
+  </div>
+
+  <table *ngIf="!loading">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Access Level</th>
+        <th>Status</th>
+        <th>Created Date</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let record of records">
+        <td>{{ record.title }}</td>
+
+        <td>{{ record.accessLevel }}</td>
+
+        <td>{{ record.status }}</td>
+
+        <td>
+          {{ record.createdAt | date }}
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div><p>dashboard-home works!</p>
