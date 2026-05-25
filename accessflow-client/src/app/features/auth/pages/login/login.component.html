@@ -20,11 +20,20 @@
 
     <select formControlName="role">
       <option>General User</option>
+
       <option>Admin</option>
     </select>
 
     <button type="submit">
-      {{ loading ? 'Loading...' : 'Login' }}
+      {{
+        loading ? 'Loading...' : 'Login'
+      }}
     </button>
+
+    <div class="demo-info">
+      <p>Admin: admin / 123456</p>
+
+      <p>User: user / 123456</p>
+    </div>
   </form>
 </div>

@@ -17,7 +17,9 @@ import { AuthService } from '../../../../core/services/auth.service';
 
   styleUrls: ['./dashboard-home.component.scss'],
 })
-export class DashboardHomeComponent implements OnInit {
+export class DashboardHomeComponent
+  implements OnInit
+{
   loading = true;
 
   records: any[] = [];

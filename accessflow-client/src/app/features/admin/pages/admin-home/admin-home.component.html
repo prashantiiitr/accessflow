@@ -2,7 +2,9 @@
   <div class="topbar">
     <h2>Admin Panel</h2>
 
-    <button (click)="logout()">Logout</button>
+    <button (click)="logout()">
+      Logout
+    </button>
   </div>
 
   <div class="form-card">
@@ -49,11 +51,20 @@
     </button>
   </div>
 
-  <div *ngIf="loading">
-    Loading users...
+  <div
+    *ngIf="!loading && users.length === 0"
+    class="empty-state"
+  >
+    No users found
   </div>
 
-  <table *ngIf="!loading">
+  <div *ngIf="loading">
+    <div class="spinner"></div>
+  </div>
+
+  <table
+    *ngIf="!loading && users.length > 0"
+  >
     <thead>
       <tr>
         <th>Name</th>

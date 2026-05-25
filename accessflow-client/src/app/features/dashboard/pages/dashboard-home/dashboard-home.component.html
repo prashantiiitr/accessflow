@@ -13,16 +13,48 @@
     <p>Role: {{ user?.role }}</p>
   </div>
 
-  <div *ngIf="loading" class="loader">
-    Loading records...
+  <div class="stats-grid">
+    <div class="stat-card">
+      <h4>Total Records</h4>
+
+      <p>{{ records.length }}</p>
+    </div>
+
+    <div class="stat-card">
+      <h4>Access Level</h4>
+
+      <p>Enterprise</p>
+    </div>
+
+    <div class="stat-card">
+      <h4>Status</h4>
+
+      <p>Active</p>
+    </div>
   </div>
 
-  <table *ngIf="!loading">
+  <div *ngIf="loading">
+    <div class="spinner"></div>
+  </div>
+
+  <div
+    *ngIf="!loading && records.length === 0"
+    class="empty-state"
+  >
+    No records found
+  </div>
+
+  <table
+    *ngIf="!loading && records.length > 0"
+  >
     <thead>
       <tr>
         <th>Title</th>
+
         <th>Access Level</th>
+
         <th>Status</th>
+
         <th>Created Date</th>
       </tr>
     </thead>
@@ -41,4 +73,4 @@
       </tr>
     </tbody>
   </table>
-</div><p>dashboard-home works!</p>
+</div>
